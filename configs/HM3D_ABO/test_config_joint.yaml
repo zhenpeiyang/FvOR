@@ -1,0 +1,57 @@
+TRAINER:
+  MSLR_MILESTONES: [5, 10, 15]
+  N_SAMPLES_PER_SUBSET: 4
+  CANONICAL_LR: 5.0e-4
+  WARMUP_TYPE: 'constant'
+  MSLR_GAMMA: 0.1
+  MODEL: 'src.models.recon_volume'
+  SDF_CLAMP: None
+  MONITOR_KEY: 'PseudoIoU_mean'
+  SCHEDULER: 'MultiStepLR' 
+  NUM_FRAME: 4
+  EIKONAL_LOSS: 0.1
+  TRACK_RUNNING_STATS: True
+  CAMERA_POSE: 'gt+noise'
+  NOISE_POSE_STD: 0.005
+  TRAIN_SHAPE: True
+  TRAIN_POSE: True
+  TRAIN_MASK: False
+  TRAIN_SCALE: False
+  USE_OCC: False
+  NUM_3D_POINTS: 2048
+  RIGID_ALIGN_TO_GT: True
+  BBOX: 'predicted' # ['gt', 'gt+perturb', 'predicted']
+  LIMIT_TEST_NUMBER: -1
+  EVAL_PER_JOINT_STEP: True
+
+BACKBONE:
+  PIXEL_FEATURE_DIM: 96
+
+COST_REG_NET:
+  NUM_COST_REG_LAYER: 6
+  VOLUME_REDUCTION: 'mean'
+
+POSE_REFINE:
+  JOINT_STEP: 3
+  CLAMP_POSE_UPDATE: True
+  LAMBDA_REG: 1.0e4
+  FLOWNET_NORMALIZE_FEATURE_MAP: True
+  POSE_UPDATE_INNER_ITER: 5
+  LAMBDA_DAMPING: 1.0e2
+
+POST_PROCESSING:
+  OPTIMIZE_SCALE: True
+  JOINT_LR: 2.0e-4
+
+DATASET:
+  name: 'hm3d_abo'
+  LOAD_DEPTH: True
+  IMAGE_WIDTH: 256
+  IMAGE_HEIGHT: 256
+  DATA_SOURCE: "HM3D_ABO"
+  DATA_ROOT: "./data/HM3D_ABO/"
+  NPZ_ROOT: "./data/HM3D_ABO/index/data/"
+  TRAIN_LIST_PATH: "./data/HM3D_ABO/index/train.txt"
+  TEST_LIST_PATH: "./data/HM3D_ABO/index/test.txt"
+  VAL_LIST_PATH: "./data/HM3D_ABO/index/val.txt"
+

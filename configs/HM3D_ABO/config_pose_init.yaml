@@ -1,0 +1,42 @@
+TRAINER:
+  MSLR_MILESTONES: [10, 20]
+  N_SAMPLES_PER_SUBSET: 200
+  CANONICAL_LR: 1.6e-3
+  WARMUP_TYPE: 'constant'
+  MSLR_GAMMA: 0.1
+  BATCH_SIZE: 8
+  MODEL: 'src.models.pose_init'
+  NUM_FRAME: 4
+  MONITOR_KEY: 'pixel_err_mean'
+  SDF_CLAMP: None
+  SCHEDULER: 'MultiStepLR' 
+  CAMERA_POSE: 'gt'
+  EIKONAL_LOSS: 0.1
+  TRACK_RUNNING_STATS: True
+  NOISE_POSE_STD: 0.01
+  TRAIN_SHAPE: False
+  TRAIN_POSE: True
+  TRAIN_MASK: True
+  TRAIN_SCALE: True
+  USE_OCC: False
+  NUM_3D_POINTS: 2048
+  RIGID_ALIGN_TO_GT: False
+  LIMIT_TEST_NUMBER: -1
+
+DATASET:
+  name: 'hm3d_abo'
+  LOAD_DEPTH: True
+  IMAGE_WIDTH: 512
+  IMAGE_HEIGHT: 384
+  DATA_SOURCE: "HM3D_ABO"
+  DATA_ROOT: "./data/HM3D_ABO/"
+  NPZ_ROOT: "./data/HM3D_ABO/index/data/"
+  TRAIN_LIST_PATH: "./data/HM3D_ABO/index/train.txt"
+  TEST_LIST_PATH: "./data/HM3D_ABO/index/test.txt"
+  VAL_LIST_PATH: "./data/HM3D_ABO/index/val.txt"
+
+POSE_INIT:
+  BACKBONE:
+    BACKBONE_TYPE: 'ResNetFPNv2'
+    INITIAL_DIM: 64
+    BLOCK_DIMS: [64, 128, 256]

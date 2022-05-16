@@ -1,0 +1,42 @@
+TRAINER:
+  MSLR_MILESTONES: [5, 10, 15]
+  N_SAMPLES_PER_SUBSET: 10
+  CANONICAL_LR: 5.0e-4
+  MSLR_GAMMA: 0.1
+  MODEL: 'src.models.recon_volume'
+  NUM_FRAME: 5
+  MONITOR_KEY: 'PseudoIoU_mean'
+  SDF_CLAMP: None
+  CAMERA_POSE: 'gt'
+  EIKONAL_LOSS: 0.1
+  TRACK_RUNNING_STATS: True
+  TRAIN_SHAPE: True
+  TRAIN_POSE: False
+  TRAIN_MASK: False
+  TRAIN_SCALE: False
+  USE_OCC: False
+  NUM_3D_POINTS: 2048
+  RIGID_ALIGN_TO_GT: False
+  LIMIT_TEST_NUMBER: 2000
+
+BACKBONE:
+  PIXEL_FEATURE_DIM: 96
+
+COST_REG_NET:
+  NUM_COST_REG_LAYER: 6
+  GRID_DIM: 64
+  VOLUME_REDUCTION: 'mean'
+  POSITION_ENCODING: True
+
+
+DATASET:
+  name: 'shapenet'
+  LOAD_DEPTH: True
+  IMAGE_WIDTH: 224
+  IMAGE_HEIGHT: 224
+  DATA_SOURCE: "ShapeNet"
+  DATA_ROOT: "./data/shapenet/FvOR_ShapeNet"
+  NPZ_ROOT: "./data/shapenet/index/data/"
+  TRAIN_LIST_PATH: "./data/shapenet/index/train.txt"
+  VAL_LIST_PATH: "./data/shapenet/index/val.txt"
+  TEST_LIST_PATH: "./data/shapenet/index/test.txt"
