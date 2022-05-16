@@ -282,5 +282,5 @@ bash scripts/HM3D_ABO/test_joint.sh ./configs/HM3D_ABO/test_config_joint.yaml --
 </details>
 
 ### Acknowledgement
-We thank the awesome codes from [LoFTR](https://github.com/zju3dv/LoFTR), [Occupancy Networks](https://github.com/autonomousvision/occupancy_networks), and [IDR](https://github.com/lioryariv/idr).
+We thank the awesome codes from [LoFTR](https://github.com/zju3dv/LoFTR), [Occupancy Networks](https://github.com/autonomousvision/occupancy_networks), [BARF](https://github.com/chenhsuanlin/bundle-adjusting-NeRF), and [IDR](https://github.com/lioryariv/idr).
 
