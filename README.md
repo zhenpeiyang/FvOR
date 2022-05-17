@@ -278,8 +278,23 @@ Test FvOR full model with G.T. pose
 ```
 bash scripts/HM3D_ABO/test_joint.sh ./configs/HM3D_ABO/test_config_joint.yaml --use_gt_pose
 ```
-    
+
 </details>
+
+If you find our work useful for your research, please consider citing our paper:
+
+```bibtex
+@misc{yang2022fvor,
+      title={FvOR: Robust Joint Shape and Pose Optimization for Few-view Object Reconstruction}, 
+      author={Zhenpei Yang and Zhile Ren and Miguel Angel Bautista and Zaiwei Zhang and Qi Shan and Qixing Huang},
+      year={2022},
+      eprint={2205.07763},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
+
 
 ### Acknowledgement
 We thank the awesome codes from [LoFTR](https://github.com/zju3dv/LoFTR), [Occupancy Networks](https://github.com/autonomousvision/occupancy_networks), [BARF](https://github.com/chenhsuanlin/bundle-adjusting-NeRF), and [IDR](https://github.com/lioryariv/idr).
